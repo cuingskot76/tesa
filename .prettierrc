@@ -1,0 +1,7 @@
+{
+  "singleQuote": false,
+  "trailingComma": "none",
+  "rules": {
+    "space-before-function-paren": ["error", "always"]
+  }
+}
