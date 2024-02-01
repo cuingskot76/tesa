@@ -1,12 +1,13 @@
 import { useFonts } from "expo-font";
 import { useState } from "react";
-import { Button, Text, View } from "react-native";
+import { Button, Pressable, Text, View } from "react-native";
 import Checkbox from "expo-checkbox";
 import Input from "../../components/Input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link } from "expo-router";
+import { LinearGradient } from "expo-linear-gradient";
 
 const formSchema = z.object({
   email: z.string().email("Masukkan email yang benar"),
@@ -39,8 +40,20 @@ const Login = () => {
       </Text>
 
       <View className="my-7">
-        <Input control={control} name={"email"} placeholder="email" />
-        <Input control={control} name={"password"} placeholder="password" />
+        <Input
+          control={control}
+          name={"email"}
+          placeholder="email"
+          label="Email"
+          labelClassName="text-primary"
+        />
+        <Input
+          control={control}
+          name={"password"}
+          placeholder="password"
+          label="Password"
+          labelClassName="text-primary"
+        />
       </View>
 
       <View className="flex justify-between flex-row mb-7">
@@ -65,11 +78,25 @@ const Login = () => {
         </Text>
       </View>
 
-      <Button
+      {/* <Button
         title="Masuk"
         color={"#E75D8F"}
         onPress={handleSubmit(onSubmit)}
-      />
+      /> */}
+
+      <Pressable>
+        <LinearGradient
+          colors={["#f297b8", "#e96c9a", "#e45085"]}
+          className="rounded-md py-3"
+        >
+          <Text
+            className="text-white text-center font-[Amaranth-Regular] text-lg font-bold"
+            onPress={handleSubmit(onSubmit)}
+          >
+            Masuk
+          </Text>
+        </LinearGradient>
+      </Pressable>
 
       <View className="flex flex-row justify-center items-center gap-0.5 my-7">
         <Text className="text-primary font-[Amaranth-Regular]">
