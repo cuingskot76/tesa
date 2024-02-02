@@ -1,13 +1,14 @@
 import { useFonts } from "expo-font";
 import { useState } from "react";
-import { Button, Pressable, Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import Checkbox from "expo-checkbox";
 import Input from "../../components/Input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
+import { useSession } from "../../hooks/useAuth";
 
 const formSchema = z.object({
   email: z.string().email("Masukkan email yang benar"),
@@ -17,9 +18,9 @@ const formSchema = z.object({
 const Login = () => {
   const [isChecked, setIsChecked] = useState(false);
 
-  const [_] = useFonts({
-    "Amaranth-Regular": require("../../assets/fonts/Amaranth-Regular.ttf")
-  });
+  // const [_] = useFonts({
+  //   "Amaranth-Regular": require("../../assets/fonts/Amaranth-Regular.ttf")
+  // });
 
   const { control, handleSubmit } = useForm({
     defaultValues: {
@@ -29,8 +30,12 @@ const Login = () => {
     resolver: zodResolver(formSchema)
   });
 
+  const { signIn } = useSession();
+
   const onSubmit = (data: any) => {
     console.log("data", data);
+    signIn();
+    router.replace("/(main)/");
   };
 
   return (
@@ -77,12 +82,6 @@ const Login = () => {
           Forgot password?
         </Text>
       </View>
-
-      {/* <Button
-        title="Masuk"
-        color={"#E75D8F"}
-        onPress={handleSubmit(onSubmit)}
-      /> */}
 
       <Pressable>
         <LinearGradient

@@ -3,8 +3,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Input from "../../components/Input";
 import { Link } from "expo-router";
+import Input from "../../components/Input";
 
 const formShema = z.object({
   username: z.string().min(3, "Username minimal 3 karakter"),
