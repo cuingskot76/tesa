@@ -11,17 +11,20 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.tesa",
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -31,9 +34,7 @@
       [
         "expo-font",
         {
-          "fonts": [
-            "./assets/fonts/Amaranth-Regular.ttf"
-          ]
+          "fonts": ["./assets/fonts/Amaranth-Regular.ttf"]
         }
       ],
       "expo-secure-store"
@@ -41,6 +42,19 @@
     "experiments": {
       "typedRoutes": true
     },
-    "scheme": "tesa"
+    "scheme": "tesa",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "5c55ebdb-fb23-4da6-a9a2-a8b72797745c"
+      }
+    },
+    "owner": "afrzl",
+    "updates": {
+      "url": "https://u.expo.dev/5c55ebdb-fb23-4da6-a9a2-a8b72797745c"
+    },
+    "runtimeVersion": "1.0.0"
   }
 }
