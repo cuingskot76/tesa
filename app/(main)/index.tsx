@@ -1,4 +1,5 @@
-import { View, Text } from "react-native";
+import { router } from "expo-router";
+import { View, Text, Pressable } from "react-native";
 import { Image } from "react-native";
 
 const Homepage = () => {
@@ -29,12 +30,15 @@ const Homepage = () => {
 
       <View className="flex-1 justify-center items-center mx-auto flex">
         <View className="flex flex-row gap-7 mb-7">
-          <View className="w-[115px] h-[115px] bg-blue flex items-center justify-center rounded-lg py-2.5 px-4">
+          <Pressable
+            className="w-[115px] h-[115px] bg-blue flex items-center justify-center rounded-lg py-2.5 px-4"
+            onPress={() => router.navigate("/reminder/")}
+          >
             <Image source={require("../../assets/menu/2.png")} />
             <Text className="text-white font-[Amaranth-Regular] text-xs mt-1 font-bold uppercase">
               Pengingat
             </Text>
-          </View>
+          </Pressable>
           <View className="w-[115px] h-[115px] bg-yellow flex items-center justify-center rounded-lg py-2.5 px-4">
             <Image source={require("../../assets/menu/1.png")} />
             <Text className="text-white font-[Amaranth-Regular] text-xs mt-1 font-bold uppercase">
