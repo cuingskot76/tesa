@@ -39,12 +39,15 @@ const Homepage = () => {
               Pengingat
             </Text>
           </Pressable>
-          <View className="w-[115px] h-[115px] bg-yellow flex items-center justify-center rounded-lg py-2.5 px-4">
+          <Pressable
+            className="w-[115px] h-[115px] bg-yellow flex items-center justify-center rounded-lg py-2.5 px-4"
+            onPress={() => router.navigate("/menu/")}
+          >
             <Image source={require("../../assets/menu/1.png")} />
             <Text className="text-white font-[Amaranth-Regular] text-xs mt-1 font-bold uppercase">
               Menu Hari Ini
             </Text>
-          </View>
+          </Pressable>
         </View>
         <View className="flex flex-row gap-7">
           <View className="w-[115px] h-[115px] bg-red_dark flex items-center justify-center rounded-lg py-2.5 px-4">
