@@ -1,4 +1,4 @@
-import { Link, Redirect, Stack, router } from "expo-router";
+import { Redirect, Stack, router } from "expo-router";
 import { useSession } from "../../hooks/useAuth";
 import { Image, Pressable, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
@@ -29,12 +29,15 @@ export default function AppLayout() {
 
         <View className="absolute top-3 left-0 right-0">
           <View className="flex flex-row mx-auto justify-center">
-            <View className="w-8 h-8">
+            <Pressable
+              className="w-8 h-8"
+              onPress={() => router.navigate("/(main)")}
+            >
               <Image
                 source={require("../../assets/tab/home.png")}
                 className="w-full h-full"
               />
-            </View>
+            </Pressable>
             <View className="w-8 h-8 mx-16">
               <Image
                 source={require("../../assets/tab/chat.png")}
